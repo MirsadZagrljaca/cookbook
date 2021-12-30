@@ -16,7 +16,7 @@ export default function MyRecipes() {
     let response = await axios.get(`${base}/recipe/author/${cache.data._id}`);
 
     response.data.map((v, i) => {
-      if (v.rating.length === 0) {
+      if (v.rating.length < 3) {
         v.rating = "Not Rated Yet";
       } else {
         let avg = 0;
@@ -26,6 +26,11 @@ export default function MyRecipes() {
         avg /= v.rating.length;
         v.rating = avg;
       }
+
+      v.created = v.created.split("T");
+      v.temp = v.created[0];
+      v.created = v.temp;
+      console.log(v.created);
     });
 
     setRecipes(response.data);
@@ -66,7 +71,7 @@ export default function MyRecipes() {
                 return (
                   <tr key={i}>
                     <td>{v.name}</td>
-                    <td>{v.rating}</td>
+                    <td>{v.rating.toFixed(2)}</td>
                     <td>{v.created}</td>
                     <td>{v.category}</td>
                     <td>

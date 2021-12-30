@@ -71,6 +71,7 @@ body,
   gap: 2rem;
   margin-left: 15%;
   margin-bottom: 1rem;
+  cursor: pointer;
 }
 
 .header-right {
@@ -107,6 +108,8 @@ body,
 
 .single-search {
   border-bottom: 1px solid black;
+  cursor: pointer;
+  margin-top: 0.5rem;
 }
 
 .single-search:last-child {
@@ -119,6 +122,11 @@ body,
   margin-bottom: 2.5rem;
 }
 
+.home-right-top > h2,
+.home-right-bottom > h2 {
+  margin: 0.5rem;
+}
+
 .top-single,
 .latest-single {
   display: flex;
@@ -126,16 +134,29 @@ body,
   justify-content: space-between;
   margin: 0.5rem;
   border-bottom: 1px solid black;
+  cursor: pointer;
 }
 
-.home-right-top > h2 {
-  text-align: center;
+.home-right-top-title {
+  margin: 1rem;
   border-bottom: 1px solid black;
+  text-align: center;
 }
 
-.home-right-bottom > h2 {
-  text-align: center;
+.home-right-bottom-title {
+  margin: 1rem;
   border-bottom: 1px solid black;
+  text-align: center;
+}
+
+.top-single:last-child{
+  border-bottom:none;
+  margin-bottom: 0;
+}
+
+.latest-single:last-child{
+  border-bottom:none;
+  margin-bottom: 0;
 }
 
 .recipe {
@@ -199,6 +220,8 @@ body,
   border: 1px solid black;
   padding: 0.5rem;
   text-align: center;
+  cursor: pointer;
+  box-shadow: 5px 5px #888888;
 }
 
 .add {
@@ -296,7 +319,7 @@ td {
 
   th,
   td {
-    padding: 0.25rem;
+    padding: 0.5rem;
   }
 
   .my-main {
@@ -335,7 +358,7 @@ td {
 
   th,
   td {
-    padding: 0.1rem;
+    padding: 0.5rem;
   }
 }
 
@@ -364,6 +387,6 @@ td {
 
   th,
   td {
-    padding: 0.1rem;
+    padding: 0.5rem;
   }
 }

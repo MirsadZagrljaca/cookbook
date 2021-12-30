@@ -127,7 +127,9 @@ export default function Home() {
 
       <div className="home-right">
         <div className="home-right-top">
-          <h2>Top Ratings</h2>
+          <div className="home-right-top-title">
+            <h2>Top Ratings</h2>
+          </div>
           {topRatings &&
             topRatings.map((v, i) => {
               return (
@@ -148,7 +150,9 @@ export default function Home() {
         </div>
 
         <div className="home-right-bottom">
-          <h2>Latest</h2>
+          <div className="home-right-bottom-title">
+            <h2>Latest</h2>
+          </div>
           {latest &&
             latest.map((v, i) => {
               return (

@@ -13,6 +13,7 @@ export default function SingleRecipe() {
   const { recipeId } = useParams();
   const [data, setData] = useState([]);
   const [rate, setRate] = useState(false);
+  const [user, setUser] = useState({});
   const [selectedRating, setSelectedRating] = useState(0);
 
   useEffect(async () => {
@@ -22,7 +23,7 @@ export default function SingleRecipe() {
     setAuthor(response.data.author);
     setRatings(response.data.rating);
 
-    if (response.data.rating.length === 0) {
+    if (response.data.rating.length < 3) {
       setAvg("Not Rated Yet!");
     } else {
       let tempAvg = 0;
@@ -54,6 +55,10 @@ export default function SingleRecipe() {
       }
     });
     setData(temp);
+
+    axios.get(`${base}/cache`).then((response) => {
+      setUser(response.data);
+    });
   }, [recipeId]);
 
   const rateRecipe = () => {
@@ -117,7 +122,11 @@ export default function SingleRecipe() {
         </div>
       </div>
       <div className="recipe-buttons">
-        <Button variant="outline-primary" onClick={() => setRate(true)}>
+        <Button
+          variant="outline-primary"
+          disabled={author._id === user._id}
+          onClick={() => setRate(true)}
+        >
           Rate This Recipe!
         </Button>
         <Button
